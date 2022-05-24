@@ -4,18 +4,22 @@ import './App.css';
 import NavBar from './components/NavBar';
 
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
-  Link,
   useParams,
   Routes,
   BrowserRouter
 } from "react-router-dom";
+
 import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductsScreen';
+import ProductsScreen from './screens/ProductsScreen';
 import NoScreen from './screens/NoScreen';
 import FooterBar from './components/FooterBar';
+import SingleProductScreen from './screens/SingleProductScreen';
+
+const ProductIdWrapper = () => {
+  const { productId } = useParams();
+  return <SingleProductScreen productId={productId} />;
+};
 
 class App extends React.Component
 {
@@ -32,11 +36,12 @@ class App extends React.Component
                 <BrowserRouter>
                   <Routes>
                     <Route exact path="/" element={<HomeScreen/>}/>
-                    <Route path="/products" element={<ProductScreen/>}/>
+                    <Route path="/products" element={<ProductsScreen/>}/>
+                    <Route path="/products/:productId" element={<ProductIdWrapper/>}/>
                     <Route path="*" element={<NoScreen/>}/>
                   </Routes>
                 </BrowserRouter>
-
+                
                 <FooterBar/>
             </div>
         );

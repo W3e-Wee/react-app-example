@@ -44,5 +44,5 @@
 
 .Main
 {
-  min-height: 1080px;
+  min-height: calc(100vh - 143px);
 }
