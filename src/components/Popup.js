@@ -50,7 +50,11 @@ class Popup extends React.Component
             <div className='Modal' style={this.state.style}>
                 <div className='Modal-Box'>
                     <span className="Modal-Close" onClick={this.hideModal}>&times;</span>
-                    <p>{this.sMessage}</p>
+                    <div className="Modal-Content">
+                        
+                        <p>{this.sMessage}</p>
+                    
+                    </div>
                 </div>
             </div>
         );
