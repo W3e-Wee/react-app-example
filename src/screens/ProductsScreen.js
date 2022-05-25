@@ -2,13 +2,13 @@ import React from 'react';
 
 class ProductsScreen extends React.Component
 {
-    constructor(props) {
+    constructor() {
         super()
     }
 
     render()
     {
-        const aList = []
+        const aList = [];
 
         for (var i=0; i<10; i++) 
         {
