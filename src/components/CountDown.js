@@ -10,6 +10,9 @@ class CountDown extends React.Component
             min: "00",
             sec: "00",
         };
+
+        this.runTimer = this.runTimer.bind(this);
+        this.updateTimer = this.updateTimer.bind(this);
     }
 
     componentDidMount() 
@@ -18,8 +21,10 @@ class CountDown extends React.Component
 
         //console.log(this.props.message);
 
+        this.updateTimer();
+
         this.objInterval = setInterval(
-            () => this.updateTimer(), 
+            () => this.runTimer(), 
             1000
         );
     }
@@ -29,10 +34,10 @@ class CountDown extends React.Component
         clearInterval(this.objInterval);
     }
 
-    updateTimer()
+    runTimer()
     {
         this.iSec--;
-        if(this.iSec < 0)
+        if(this.iSec <= 0)
         {
             this.iSec = 0;
 
@@ -47,6 +52,11 @@ class CountDown extends React.Component
 
         //console.log(this.iSec);
 
+        this.updateTimer();
+    }
+
+    updateTimer()
+    {
         let iDisplayHrs = Math.floor(Math.floor(this.iSec / 60) / 60);
         let sDisplayHrs = "" + iDisplayHrs;
         if(iDisplayHrs < 10) sDisplayHrs = "0"+ iDisplayHrs;
