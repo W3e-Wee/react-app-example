@@ -23,7 +23,7 @@ class CountDown extends React.Component
 
         this.updateTimer();
 
-        this.objInterval = setInterval(
+        this.iIntervalID = setInterval(
             () => this.runTimer(), 
             1000
         );
@@ -31,7 +31,7 @@ class CountDown extends React.Component
   
     componentWillUnmount() 
     {
-        clearInterval(this.objInterval);
+        clearInterval(this.iIntervalID);
     }
 
     runTimer()
