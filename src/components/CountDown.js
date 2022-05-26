@@ -47,7 +47,7 @@ class CountDown extends React.Component
                 this.props.onComplete(this.props.message);
             }
             
-            clearInterval(this.objInterval);
+            clearInterval(this.iIntervalID);
         } 
 
         //console.log(this.iSec);
